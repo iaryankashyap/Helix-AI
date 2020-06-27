@@ -8,7 +8,7 @@ A Personal assistant like jarvis.
 
 <h3>Screenshot:</h3>
 
-![helix](/screenshots/helix.jpg)
+![helix](/Screenshots/helix.jpg)
 
 <h3>License:</h3>
 
