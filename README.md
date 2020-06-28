@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/badge/Made%20with-Python-blue.svg" alt="made with python">
 <img src="https://img.shields.io/badge/Creator-Aryan%20Kashyap-blueviolet" alt="Aryan Kashyap">
 
-A Personal assistant like jarvis.
+A Personal assistant like jarvis but cannot fly suits.
 
 <h3>Screenshot:</h3>
 
