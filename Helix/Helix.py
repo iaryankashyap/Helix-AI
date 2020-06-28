@@ -88,3 +88,52 @@ if __name__ == "__main__":
             codepath = "C:\\Users\\Aryan\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(codepath)
             speak("Opening V S code...")
+        elif 'set color' in query:
+            if 'green' in query:
+                os.system('color 0A')
+                speak('Color set to green.')
+            elif 'red' in query:
+                os.system('color 0C')
+                speak('Color set to red.')
+            else:
+                speak("Please specify a valid color...")
+        elif 'set colour' in query:
+            if 'green' in query:
+                os.system('color 0A')
+                speak('Color set to green.')
+            elif 'red' in query:
+                os.system('color 0C')
+                speak('Color set to red.')
+            else:
+                speak("Please specify a valid color...")
+        elif 'clear' in query:
+            if 'screen' in query:
+                os.system('cls')
+                speak('screen cleared...')
+        elif 'terminate' in query:
+            speak("terminating code 000")
+            break
+        elif 'activate administrator mode' in query:
+            os.system('cls')
+            os.system('color 0A')
+            speak("Checking your computer to collect information..")
+            speak("Your firewall is activated.")
+            speak("Pinging your i p address. please wait...")
+            os.system('ping localhost')
+            speak("Your computer is connected to the internet.")
+            speak("Clearing your screen...")
+            os.system('cls')
+            speak("Screen cleared..")
+            os.system('cls')
+            speak("Adminstrator mode activated. Welcome Sir.")
+        elif 'show' in query:
+            if 'network' in query:
+                speak("Showing your network. Please wait...")
+                os.system('netstat')
+                speak("These are the devices connected to you.")
+            if 'files' in query:
+                os.system('dir')
+                speak("These are the files in this directory")
+            if 'system configuration' in query:
+                os.system('ipconfig')
+                speak("This is your system configuration with your i p address")
