@@ -183,7 +183,6 @@ if __name__ == "__main__":
             os.system('color 0F')
             os.system('title Helix-AI (GUEST MODE)')
             speak("Logged out successfully...")
-
         else:
             if mode == "admin":
                 p = os.system(query)
