@@ -27,11 +27,11 @@ def wishMe():
 
 
 def take():
+    global defa
     # mic input and returns string
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
-
         audio = r.listen(source)
     try:
         print("Recognizing...")
@@ -39,13 +39,16 @@ def take():
         print("You:", query)
     except Exception as e:
         # print(e)
-        print("Say that again")
+        speak("Say Something..")
+        defa = "Error"
         return "None"
+    defa = "Fine"
     return query
 
 
 if __name__ == "__main__":
     wishMe()
+    mode = "guest"
     while True:
         query = take().lower()
         if 'wikipedia' in query:
@@ -114,18 +117,26 @@ if __name__ == "__main__":
             speak("terminating code 000")
             break
         elif 'activate administrator mode' in query:
-            os.system('cls')
-            os.system('color 0A')
-            speak("Checking your computer to collect information..")
-            speak("Your firewall is activated.")
-            speak("Pinging your i p address. please wait...")
-            os.system('ping localhost')
-            speak("Your computer is connected to the internet.")
-            speak("Clearing your screen...")
-            os.system('cls')
-            speak("Screen cleared..")
-            os.system('cls')
-            speak("Adminstrator mode activated. Welcome Sir.")
+            speak("Please speak you activation code")
+            take()
+            if 'zero zero zero' in query:
+                mode = "admin"
+                os.system('cls')
+                os.system('color 0A')
+                speak("Checking your computer to collect information..")
+                speak("Your firewall is activated.")
+                speak("Pinging your i p address. please wait...")
+                os.system('ping localhost')
+                speak("Your computer is connected to the internet.")
+                speak("Clearing your screen...")
+                os.system('cls')
+                speak("Screen cleared..")
+                os.system('cls')
+                speak("Adminstrator mode activated. Welcome Sir.")
+            else:
+                os.system('color 0C')
+                speak("Sorry, your activation code is not valid.")
+                os.system('color 0F')
         elif 'show' in query:
             if 'network' in query:
                 speak("Showing your network. Please wait...")
@@ -137,3 +148,37 @@ if __name__ == "__main__":
             if 'system configuration' in query:
                 os.system('ipconfig')
                 speak("This is your system configuration with your i p address")
+        elif 'desktop' in query:
+            if mode == "admin":
+                os.system('cd Desktop')
+                os.system('dir')
+                speak("These are the files on desktop...")
+            else:
+                os.system('color 0C')
+                speak("Sorry, you are not authorized to perform this action")
+        elif 'go back' in query:
+            if mode == "admin":
+                os.system('cd ..')
+                speak("back traversing success")
+            else:
+                os.system('color 0C')
+                speak("Sorry, you are not authorized to perform this action")
+        elif "logout administrator" in query:
+            mode = "guest"
+            os.system('color 0F')
+            speak("Logged out successfully...")
+
+        else:
+            if mode == "admin":
+                p = os.system(query)
+                if p == 1:
+                    os.system('color 0C')
+                    speak("Execution Failed")
+                if p == 0:
+                    os.system('color 0A')
+                    speak("Execution success")
+            else:
+                if defa == "Fine":
+                    os.system('color 0C')
+                    speak("Not a valid command..")
+                    os.system('color 0F')
