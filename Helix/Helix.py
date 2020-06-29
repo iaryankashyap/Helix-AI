@@ -49,6 +49,7 @@ def take():
 if __name__ == "__main__":
     wishMe()
     mode = "guest"
+    os.system('title Helix-AI (GUEST MODE)')
     while True:
         query = take().lower()
         if 'wikipedia' in query:
@@ -75,13 +76,11 @@ if __name__ == "__main__":
         elif 'play music' in query:
             musicdir = "C:\\Users\\Aryan\\Music"
             songs = os.listdir(musicdir)
-            print(songs)
             os.startfile(os.path.join(musicdir, songs[3]))
             speak("Playing Music...")
         elif 'play songs' in query:
             musicdir = "C:\\Users\\Aryan\\Music"
             songs = os.listdir(musicdir)
-            print(songs)
             os.startfile(os.path.join(musicdir, songs[3]))
             speak("Playing Music...")
         elif 'the time' in query:
@@ -117,9 +116,9 @@ if __name__ == "__main__":
             speak("terminating code 000")
             break
         elif 'activate administrator mode' in query:
-            speak("Please speak you activation code")
-            take()
-            if 'zero zero zero' in query:
+            speak("Please speak your activation code")
+            newquery = take()
+            if 'zero zero zero' in newquery:
                 mode = "admin"
                 os.system('cls')
                 os.system('color 0A')
@@ -132,6 +131,22 @@ if __name__ == "__main__":
                 os.system('cls')
                 speak("Screen cleared..")
                 os.system('cls')
+                os.system('title Helix-AI (ADMINISTRATOR MODE)')
+                speak("Adminstrator mode activated. Welcome Sir.")
+            if '0 0 0' in newquery:
+                mode = "admin"
+                os.system('cls')
+                os.system('color 0A')
+                speak("Checking your computer to collect information..")
+                speak("Your firewall is activated.")
+                speak("Pinging your i p address. please wait...")
+                os.system('ping localhost')
+                speak("Your computer is connected to the internet.")
+                speak("Clearing your screen...")
+                os.system('cls')
+                speak("Screen cleared..")
+                os.system('cls')
+                os.system('title Helix-AI (ADMINISTRATOR MODE)')
                 speak("Adminstrator mode activated. Welcome Sir.")
             else:
                 os.system('color 0C')
@@ -166,6 +181,7 @@ if __name__ == "__main__":
         elif "logout administrator" in query:
             mode = "guest"
             os.system('color 0F')
+            os.system('title Helix-AI (GUEST MODE)')
             speak("Logged out successfully...")
 
         else:
